@@ -3,7 +3,7 @@
 [\[Project Page\]](https://cuiaiyu.github.io/StreetTryOn/)
 
 
-__StreetTryOn__, the new In-the-wild Virtual Try-On dataset, consists of 12, 364 and 2, 089 street
+__StreetTryOn__, the new in-the-wild Virtual Try-On dataset, consists of 12, 364 and 2, 089 street
 person images for training and validation, respectively. It is derived from the large fashion retrieval
 dataset [DeepFashion2](https://github.com/switchablenorms/DeepFashion2), from which we
 filter out over 90% of DeepFashion2 images that are infeasible for try-on tasks (e.g., non-frontal view, large occlusion,
