@@ -24,7 +24,7 @@ rm -rf *.zip
 # filter images from the raw Deepfashion2 dataset
 echo "filtering training data.."
 export SPLIT='train'
-python street_tryon_benchmark/filter_and_process_raw_deepfashion2_images.py \
+python street_tryon_benchmark/process_deepfashion2_images.py \
 --source_img_dir deepfashion2/${SPLIT}/image/ \
 --bbox_dir street_tryon/${SPLIT}/raw_bbox \
 --target_img_dir street_tryon/${SPLIT}/image \
@@ -32,11 +32,11 @@ python street_tryon_benchmark/filter_and_process_raw_deepfashion2_images.py \
 
 echo "filtering validation data.."
 export SPLIT='validation'
-python street_tryon_benchmark/filter_and_process_raw_deepfashion2_images.py \
+python street_tryon_benchmark/process_deepfashion2_images.py \
 --source_img_dir deepfashion2/${SPLIT}/image/ \
 --bbox_dir street_tryon/${SPLIT}/raw_bbox \
 --target_img_dir street_tryon/${SPLIT}/image \
 --image_list_path street_tryon/annotations/${SPLIT}_image_list.txt 
 
-
-
+# remove deepfashion2
+rm -rf deepfashion2

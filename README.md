@@ -13,23 +13,16 @@ Five Virtual Try-On tests are included:
 ### TODO List
 In this repo, we provide:
 - [x] Street TryOn Dataset Download
-- [x] Additional Annotations For VITON-HD
-    - Human DensePose
-    - Garment DensePose
-- [x] Dataloader to load data for five new-proposed virtual try-on benchmark tests:
-    - Shop-to-Model
-    - Shop-to-Street
-    - Model-to-Model
-    - Model-to-Street
-    - Street-to-Street
-- [] A colab for data I/O with toy dataset
-- [] Benchmark results for multiple approachs
+- [x] Additional Annotations For VITON-HD: Human DensePose & Garment DensePose
+- [x] Dataloader to load data for five new proposed virtual try-on benchmark tests
+- [ ] A Colab for data I/O with toy dataset
+- [ ] Benchmark results for multiple approaches
 
 ## Street TryOn Dataset
-Street TryOn Dataset contains __unpaired__ __in-the-wild person images__ that can be used for virtual try-on task. Street TryOn Dataset contains 12,364 and 2089 images filtered from [Deepfashion2 Dataset](https://github.com/switchablenorms/DeepFashion2) for training and validation. Examples are shown below.
+Street TryOn Dataset contains __unpaired__ __in-the-wild person images__ that can be used for virtual try-on tasks. Street TryOn Dataset consists of 12,364 and 2089 images filtered from [Deepfashion2 Dataset](https://github.com/switchablenorms/DeepFashion2) for training and validation.
 
 
-We release all the annotations mentioned in [our paper](https://arxiv.org/pdf/2311.16094.pdf). Note for images: we provide scripts to extract them from DeepFashion2 dataset. Please follow the below steps to fully download the dataset into your datapath `$DATA`. 
+We release all the annotations mentioned in [our paper](https://arxiv.org/pdf/2311.16094.pdf). Note for images: we provide scripts to extract them from DeepFashion2 dataset. Please follow the below steps to download the dataset into your datapath `$DATA`. 
 
 ### Licenses
 Since this dataset is derived from  [Deepfashion2 Dataset](https://github.com/switchablenorms/DeepFashion2), the same license is inherited.
@@ -41,10 +34,14 @@ Since this dataset is derived from  [Deepfashion2 Dataset](https://github.com/sw
 github clone https://github.com/cuiaiyu/street-tryon-benchmark
  ```
 2. Download the released Street TryOn Data annotations from [this link](https://drive.google.com/drive/folders/1IxcCiG4FID1uRoMdm2wSapfNsYBCPXDH?usp=sharing) and unzip it under `$DATA` as `$DATA/street_tryon`
-3. Download and filter the images from DeepFasshion2 by running script 
+3. Download, filter and process the images from DeepFasshion2 by running the below script 
 ```sh
 # The password obtained in Step 1 will be used here.
 sh street-tryon-benchmark/get_street_images.sh
+```
+4. Move the tutorial notebook under `$Data`
+```
+mv street-tryon-benchmark/street_tryon_benchmark_tutorial.ipynb .
 ```
 
 
@@ -68,6 +65,7 @@ sh street-tryon-benchmark/get_street_images.sh
             - street2street_test_pairs_dress.csv
             - ...
     - street-tryon-benchmark
+    - street_tryon_benchmark_tutorial.ipynb
         
 ```
 
@@ -88,6 +86,7 @@ To run the cross-domain virtual try-on test, please also download the [VITON-HD 
         - test
             - ...
     - street-tryon-benchmark
+    - street_tryon_benchmark_tutorial.ipynb
 ```
 ### Additional annotations for VITON-HD
 
@@ -151,7 +150,7 @@ Note:
 - The default dataset configuration is loading ATR segmentation for street images and loading the provided segmentation for VITON-HD. If you need either in different format, you can change the `segm_dir` or `garment_segm_dir` in the corresponding ``.yaml`` config file with your new datapath.
 
 ## Licenses
-We inherit the licenses from both [DeepFashion2 Dataset](https://github.com/switchablenorms/DeepFashion2) and [VITON-HD](https://github.com/shadow2496/VITON-HD#license). 
+We inherit the licenses from both [DeepFashion2 Dataset](https://github.com/switchablenorms/DeepFashion2) and [VITON-HD](https://github.com/shadow2496/VITON-HD#license). The usage of the data and code has to meet the requirements of both licenses.
 
 No commerical usage is allowed.
 
