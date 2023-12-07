@@ -1,10 +1,10 @@
-# Street TryOn Benchmark for In-the-wild Virtual Try-On and Cross-domain Virtual Try-On
+# Street TryOn Benchmark for In-the-Wild Try-On and Cross-Domain Try-On
 [\[Paper\]](https://arxiv.org/pdf/2311.16094.pdf) 
 [\[Project Page\]](https://cuiaiyu.github.io/StreetTryOn/)
 
 This is the official release of the data and benchmark mentioned in paper [Street TryOn: Learning In-the-wild Virtual Try-On from Unpaired Person Images](https://arxiv.org/pdf/2311.16094.pdf).
 
-Five Virtual Try-On tests are included:
+Five Virtual Try-On tests are covered:
 - In-domain Test: __Shop2Model Test, Model2Model Test, Street2Street Test__ (New)
 - Cross-domain Test: __Shop2Street Test__ (New), __Model2Street Test__ (New)
     
@@ -28,7 +28,7 @@ We release all the annotations mentioned in [our paper](https://arxiv.org/pdf/23
 Since this dataset is derived from  [Deepfashion2 Dataset](https://github.com/switchablenorms/DeepFashion2), the same license is inherited.
 
 ### Downloading Steps
-1. Obtain the data access of DeepFashion2 from [its official repo](https://github.com/switchablenorms/DeepFashion2#download-the-data) for a __zip password__ which will be used later to unzip the images.
+1. Obtain the data access of DeepFashion2 from [its official release](https://github.com/switchablenorms/DeepFashion2#download-the-data) for a __zip password__ which will be used later to unzip the images.
 2. Clone this repo under `$DATA` by 
 ```sh
 github clone https://github.com/cuiaiyu/street-tryon-benchmark
@@ -39,9 +39,9 @@ github clone https://github.com/cuiaiyu/street-tryon-benchmark
 # The password obtained in Step 1 will be used here.
 sh street-tryon-benchmark/get_street_images.sh
 ```
-4. Move the tutorial notebook under `$Data`
+4. Move the tutorial notebook under `$DATA`
 ```
-mv street-tryon-benchmark/street_tryon_benchmark_tutorial.ipynb .
+mv street-tryon-benchmark/street_tryon_tutorial.ipynb .
 ```
 
 
@@ -49,23 +49,24 @@ mv street-tryon-benchmark/street_tryon_benchmark_tutorial.ipynb .
 4. After that, you should have the data as:
 ```
 - $DATA
-    - street_tryon
-        - train
-            - image
-            - densepose
-            - raw_bbox
+    - street_tryon/
+        - train/
+            - image/
+            - densepose/
+            - raw_bbox/
             - ...
-        - validation
-            - image
-            - densepose
-            - raw_bbox
+        - validation/
+            - image/
+            - densepose/
+            - raw_bbox/
             - ...
-        - annotations
+        - annotations/
             - street2street_test_pairs_top.csv
             - street2street_test_pairs_dress.csv
             - ...
-    - street-tryon-benchmark
-    - street_tryon_benchmark_tutorial.ipynb
+    - street-tryon-benchmark/
+        - ...
+    - street_tryon_tutorial.ipynb
         
 ```
 
@@ -73,20 +74,21 @@ mv street-tryon-benchmark/street_tryon_benchmark_tutorial.ipynb .
 To run the cross-domain virtual try-on test, please also download the [VITON-HD dataset](https://github.com/shadow2496/VITON-HD#dataset) from its official release and unzip it under `$DATA`. The `$DATA` directory should look like
 ```
 - $DATA
-    - street_tryon
-        - train
+    - street_tryon/
+        - train/
             - ...
-        - validation
+        - validation/
             - ...
-        - annotations
+        - annotations/
             - ...
-    - zalando (VITON-HD)
-        - train
+    - zalando/ (VITON-HD)
+        - train/
             - ...
-        - test
+        - test/
             - ...
-    - street-tryon-benchmark
-    - street_tryon_benchmark_tutorial.ipynb
+    - street-tryon-benchmark/
+        - ...
+    - street_tryon_tutorial.ipynb
 ```
 ### Additional annotations for VITON-HD
 
@@ -144,7 +146,7 @@ pimg, piuv, pseg = curr['pimg'], curr['piuv'], curr['pseg']
 gimg, giuv, gseg = curr['gimg'], curr['giuv'], curr['gseg']
 ```
 
-We also provide a [notebook](street_tryon_benchmark_tutorial.ipynb) to play with this dataloader.
+We also provide a [notebook](street_tryon_tutorial.ipynb) to play with this dataloader.
 
 Note:
 - The default dataset configuration is loading ATR segmentation for street images and loading the provided segmentation for VITON-HD. If you need either in different format, you can change the `segm_dir` or `garment_segm_dir` in the corresponding ``.yaml`` config file with your new datapath.
