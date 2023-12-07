@@ -2,13 +2,24 @@
 [\[Paper\]](https://arxiv.org/pdf/2311.16094.pdf) 
 [\[Project Page\]](https://cuiaiyu.github.io/StreetTryOn/)
 
-This is the official release of the data and benchmark mentioned in paper [Street TryOn: Learning In-the-wild Virtual Try-On from Unpaired Person Images](https://arxiv.org/pdf/2311.16094.pdf).
 
-Five Virtual Try-On tests are covered:
-- In-domain Test: __Shop2Model Test, Model2Model Test, Street2Street Test__ (New)
-- Cross-domain Test: __Shop2Street Test__ (New), __Model2Street Test__ (New)
+__StreetTryOn__, the new In-the-wild Virtual Try-On dataset, consists of 12, 364 and 2, 089 street
+person images for training and validation, respectively. It is derived from the large fashion retrieval
+dataset [DeepFashion2](https://github.com/switchablenorms/DeepFashion2), from which we
+filter out over 90% of DeepFashion2 images that are infeasible for try-on tasks (e.g., non-frontal view, large occlusion,
+dark environment, etc.).
+Combining with the garment and person images in [VITON-HD](https://github.com/shadow2496/VITON-HD), we obtain a comprehensive suite of in-domain
+and cross-domain try-on tasks that have garment and person inputs from various sources, including Shop2Model,
+Model2Model, Shop2Street, and Street2Street.
+
+This is the official release of the __StreetTryOn__ Dataset and more details can be found in our paper [Street TryOn: Learning In-the-wild Virtual Try-On from Unpaired Person Images](https://arxiv.org/pdf/2311.16094.pdf).
+
     
 ![image](cover_images/teaser_right.png)
+
+Five Virtual Try-On tasks are covered:
+- In-domain Tasks: __Shop2Model Test, Model2Model Test, Street2Street Test__ (New)
+- Cross-domain Tasks: __Shop2Street Test__ (New), __Model2Street Test__ (New)
 
 ### TODO List
 In this repo, we provide:
@@ -111,18 +122,18 @@ After `VITON-HD` and `street-tryon` datasets are set up, one can run the followi
 from street_tryon_benchmark.dataset import GeneralTryOnDataset
 
 
-def get_dataset_by_test(test):
-    if test == 'shop2model':
+def get_dataset_by_task(task):
+    if task == 'shop2model':
         config_path = "street_tryon_benchmark/configs/shop2model.yaml"
-    elif test == 'shop2street':
+    elif task == 'shop2street':
         config_path = "street_tryon_benchmark/configs/shop2street.yaml"
-    elif test == 'model2model':
+    elif task == 'model2model':
         config_path = "street_tryon_benchmark/configs/model2model.yaml"
-    elif test == 'model2street':
+    elif task == 'model2street':
         config_path = "street_tryon_benchmark/configs/model2street.yaml"
-    elif test == 'street2street-top':
+    elif task == 'street2street-top':
         config_path = "street_tryon_benchmark/configs/street2street_top.yaml"
-    elif test == 'street2street-dress':
+    elif task == 'street2street-dress':
         config_path = "street_tryon_benchmark/configs/street2street_dress.yaml"
     else:
         raise NotImplementedError
@@ -133,8 +144,8 @@ def get_dataset_by_test(test):
 
     return GeneralTryOnDataset(".", config=data_config, split='test')
 
-# create dataset for street2street test
-dataset = get_dataset_by_test('street2street-top')
+# create dataset for street2street task
+dataset = get_dataset_by_task('street2street-top')
 
 # check data
 curr = dataset[0]
