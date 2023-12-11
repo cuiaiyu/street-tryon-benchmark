@@ -1,4 +1,4 @@
-# Street TryOn Dataset
+# Street TryOn Dataset/Benchmark
 [\[Paper\]](https://arxiv.org/pdf/2311.16094.pdf) 
 [\[Project Page\]](https://cuiaiyu.github.io/StreetTryOn/)
 
