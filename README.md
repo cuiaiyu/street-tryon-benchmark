@@ -42,7 +42,7 @@ Since this dataset is derived from  [Deepfashion2 Dataset](https://github.com/sw
 1. Obtain the data access of DeepFashion2 from [its official release](https://github.com/switchablenorms/DeepFashion2#download-the-data) for a __zip password__ which will be used later to unzip the images.
 2. Clone this repo under `$DATA` by 
 ```sh
-github clone https://github.com/cuiaiyu/street-tryon-benchmark
+git clone https://github.com/cuiaiyu/street-tryon-benchmark
  ```
 2. Download the released Street TryOn Data annotations from [this link](https://drive.google.com/drive/folders/1IxcCiG4FID1uRoMdm2wSapfNsYBCPXDH?usp=sharing) and unzip it under `$DATA` as `$DATA/street_tryon`
 3. Download, filter and process the images from DeepFasshion2 by running the below script 
