@@ -2,6 +2,8 @@
 [\[Paper\]](https://arxiv.org/pdf/2311.16094.pdf) 
 [\[Project Page\]](https://cuiaiyu.github.io/StreetTryOn/)
 
+(WACV'25)
+
 
 __StreetTryOn__, the new in-the-wild Virtual Try-On dataset, consists of 12, 364 and 2, 089 street
 person images for training and validation, respectively. It is derived from the large fashion retrieval
@@ -20,14 +22,6 @@ This is the official release of the __StreetTryOn__ Dataset and more details can
 Five Virtual Try-On tasks are covered:
 - In-domain Tasks: __Shop2Model Test, Model2Model Test, Street2Street Test__ (New)
 - Cross-domain Tasks: __Shop2Street Test__ (New), __Model2Street Test__ (New)
-
-### TODO List
-In this repo, we provide:
-- [x] Street TryOn Dataset Download
-- [x] Additional Annotations For VITON-HD: Human DensePose & Garment DensePose
-- [x] Dataloader to load data for five new proposed virtual try-on benchmark tests
-- [ ] A Colab for data I/O with toy dataset
-- [ ] Benchmark results for multiple approaches
 
 ## Street TryOn Dataset
 Street TryOn Dataset contains __unpaired__ __in-the-wild person images__ that can be used for virtual try-on tasks. Street TryOn Dataset consists of 12,364 and 2089 images filtered from [Deepfashion2 Dataset](https://github.com/switchablenorms/DeepFashion2) for training and validation.
